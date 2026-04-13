@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🔥 焼肉はじめ・つづき シフト表</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Noto Sans JP',sans-serif;background:#f1f5f9;color:#1e293b;min-height:100vh;}
+input,select,button,textarea{font-family:inherit;font-size:16px;}
+input[type="date"]{-webkit-appearance:none;appearance:none;}
+:root{
+  --or:#f97316;--orl:#fff7ed;--orb:#fed7aa;
+  --pu:#8b5cf6;--pul:#f5f3ff;--pub:#ddd6fe;
+  --gr:#16a34a;--grl:#dcfce7;--grb:#86efac;
+  --re:#dc2626;--rel:#fee2e2;--reb:#fca5a5;
+  --bl:#1d4ed8;
+  --bd:#e2e8f0;--tx:#1e293b;--tx2:#64748b;--tx3:#94a3b8;
+}
+.header{background:#fff;border-bottom:1px solid var(--bd);padding:12px 16px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.header-title{font-size:15px;font-weight:900;}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.nav button{white-space:nowrap;flex-shrink:0;background:transparent;border:1px solid transparent;border-radius:8px;padding:9px 14px;cursor:pointer;font-size:14px;font-weight:500;color:var(--tx2);transition:all .15s;}
+.nav button.active{background:var(--orl);border-color:var(--orb);color:var(--or);font-weight:700;}
+.main{max-width:860px;margin:0 auto;padding:16px 12px 100px;}
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.card-title{font-size:13px;font-weight:700;color:var(--tx2);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.card-title::before{content:'';display:inline-block;width:4px;height:14px;border-radius:2px;background:var(--or);}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.field label{font-size:13px;font-weight:700;color:var(--tx2);}
+.inp{background:#f8fafc;border:1px solid var(--bd);border-radius:8px;padding:12px;color:var(--tx);font-size:16px;outline:none;width:100%;}
+.inp:focus{border-color:var(--or);}
+.big-textarea{background:#f8fafc;border:1px solid var(--bd);border-radius:10px;padding:14px;color:var(--tx);font-size:16px;outline:none;width:100%;resize:vertical;min-height:80px;line-height:1.7;}
+.big-textarea:focus{border-color:var(--or);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:10px;padding:13px 20px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .15s;min-height:48px;}
+.btn-primary{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;}
+.btn-light{background:#f8fafc;color:var(--tx2);border:1px solid var(--bd);}
+.btn-danger{background:var(--rel);color:var(--re);border:1px solid var(--reb);}
+.btn-store0{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;}
+.btn-store1{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;}
+.btn-sm{padding:9px 16px;font-size:13px;min-height:40px;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+.store-tabs{display:flex;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:4px;margin-bottom:16px;}
+.store-tab{flex:1;padding:12px;border-radius:9px;border:none;cursor:pointer;font-size:15px;font-weight:700;font-family:inherit;transition:all .2s;color:var(--tx3);}
+.store-tab.active0{background:var(--or);color:#fff;}
+.store-tab.active1{background:var(--pu);color:#fff;}
+.shift-week-block{background:#fff;border:1px solid var(--bd);border-radius:16px;margin-bottom:16px;overflow:hidden;}
+.shift-week-title{padding:16px 18px;font-size:15px;font-weight:700;border-bottom:2px solid;}
+.shift-day-row{border-bottom:1px solid #f1f5f9;}
+.shift-day-row:last-child{border-bottom:none;}
+.shift-day-header{display:flex;align-items:center;padding:14px 16px;background:#f8fafc;cursor:pointer;gap:12px;min-height:60px;}
+.shift-day-name{font-size:18px;font-weight:900;min-width:90px;}
+.shift-day-body{padding:10px 16px 16px;}
+.sfc{display:flex;align-items:flex-start;border-radius:12px;padding:14px 16px;margin-bottom:10px;gap:12px;border:2px solid;}
+.sfc-left{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;}
+.sfc-time{font-size:20px;font-weight:900;}
+.sfc-name{font-size:18px;font-weight:700;}
+.sfc-role{font-size:13px;font-weight:600;opacity:.7;}
+.sfc-memo{font-size:13px;opacity:.75;margin-top:4px;line-height:1.6;}
+.sfc-remove{background:rgba(0,0,0,.12);border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;padding:8px 14px;min-height:44px;min-width:48px;flex-shrink:0;align-self:flex-start;}
+.wish-info{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px;}
+.wish-tag{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:700;border:1px solid;}
+.avail-item{background:#f8fafc;border:2px solid var(--bd);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px;cursor:pointer;transition:all .15s;min-height:64px;}
+.avail-item.selected{background:var(--orl);border-color:var(--or);}
+.wish-row{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px;}
+.wish-row.holiday{background:#fff1f2;border-color:var(--reb);}
+.wish-row.saturday{background:#eff6ff;border-color:#bfdbfe;}
+.wish-day{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.wish-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0;}
+.wish-opt-btn{padding:14px 10px;border-radius:12px;border:2px solid var(--bd);background:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;min-height:54px;text-align:center;line-height:1.4;}
+.wish-extra-block{margin-top:12px;background:#f8fafc;border-radius:10px;padding:14px;border:1px solid var(--bd);}
+.wish-extra-title{font-size:13px;font-weight:700;color:var(--tx2);margin-bottom:8px;}
+.staff-item{background:#f8fafc;border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.staff-item.unsub{background:#fff1f2;border-color:var(--reb);}
+.staff-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#f97316,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;flex-shrink:0;}
+.staff-info{flex:1;min-width:0;}
+.staff-name-row{font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.staff-sub{font-size:12px;color:var(--tx3);margin-top:4px;}
+.role-badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;}
+.mgr-badge{background:#a16207;color:#fff;border-radius:4px;font-size:10px;padding:2px 5px;font-weight:900;}
+.ov-week-label{font-size:15px;font-weight:700;padding:14px 16px;border-bottom:2px solid;margin-bottom:0;}
+.ov-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+.ov-table th{font-size:12px;font-weight:700;padding:8px 6px;border:1px solid var(--bd);text-align:center;background:#f8fafc;color:var(--tx2);}
+.ov-table td{border:1px solid var(--bd);padding:0;vertical-align:top;}
+.ov-day-cell{padding:8px 6px;background:#f8fafc;text-align:center;}
+.ov-day-name{font-size:15px;font-weight:700;}
+.ov-day-date{font-size:11px;color:var(--tx2);}
+.ov-store-cell{padding:6px 8px;vertical-align:top;}
+.ov-entry{font-size:12px;padding:4px 0;border-bottom:1px solid #f1f5f9;}
+.ov-entry:last-child{border-bottom:none;}
+.ov-entry-row{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;}
+.ov-time{font-weight:700;font-size:12px;color:var(--tx2);flex-shrink:0;min-width:38px;white-space:nowrap;}
+.ov-name{font-size:12px;color:var(--tx);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ov-memo{font-size:10px;color:#8b5cf6;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;text-decoration:underline dotted;}
+.ov-empty{font-size:11px;color:var(--tx3);padding:4px 0;}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:flex;align-items:flex-end;justify-content:center;}
+.modal-sheet{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;padding:20px 16px 40px;}
+.modal-drag{width:40px;height:4px;background:#e2e8f0;border-radius:2px;margin:0 auto 16px;}
+.shift-view-row{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:12px;margin-bottom:10px;border:2px solid;}
+.header-badge{font-size:12px;padding:4px 12px;border-radius:20px;font-weight:700;}
+.logout-btn{background:none;border:1px solid var(--bd);border-radius:8px;padding:8px 14px;font-size:13px;color:var(--tx2);cursor:pointer;}
+.sync-badge{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#15803d;border:1px solid #86efac;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;}
+.sync-dot{width:7px;height:7px;background:#16a34a;border-radius:50%;animation:pulse 1.5s infinite;}
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#22c55e;color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;font-weight:700;z-index:500;transition:all .3s;opacity:0;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.login-wrap{min-height:100vh;background:linear-gradient(135deg,#fff7ed,#f5f3ff);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+.login-card{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:28px 20px;width:100%;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.role-card-wrap{display:flex;gap:10px;margin-bottom:22px;}
+.role-card{flex:1;border-radius:14px;padding:16px 8px;text-align:center;border:1px solid;}
+.loading-screen{position:fixed;inset:0;background:linear-gradient(135deg,#fff7ed,#f5f3ff);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;}
+.loading-spinner{width:52px;height:52px;border:4px solid #fed7aa;border-top-color:#f97316;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:18px;}
+.empty{text-align:center;padding:36px;color:var(--tx3);font-size:15px;}
+.info-box{background:#f8fafc;border:1px solid var(--bd);border-radius:10px;padding:14px;font-size:14px;color:var(--tx2);line-height:2.1;}
+.week-label{font-size:14px;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid;}
+.del-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;}
+.del-box{background:#fff;border-radius:16px;padding:24px 20px;width:100%;max-width:360px;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table.wish-tbl{border-collapse:collapse;width:100%;}
+table.wish-tbl th,table.wish-tbl td{border:1px solid var(--bd);padding:8px 6px;font-size:13px;text-align:center;vertical-align:top;}
+table.wish-tbl th{background:#f8fafc;font-weight:600;color:var(--tx2);}
+table.wish-tbl td.name-cell{text-align:left;font-weight:700;white-space:nowrap;background:#f8fafc;min-width:80px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+</style>
+</head>
+<body>
+<div id="loading-screen" class="loading-screen">
+  <div class="loading-spinner"></div>
+  <div style="font-size:17px;font-weight:700;color:#f97316;">🔥 焼肉はじめ・焼肉つづき</div>
+  <div style="font-size:14px;color:#94a3b8;margin-top:6px;">接続中...</div>
+  <div id="loading-msg" style="font-size:12px;color:#94a3b8;margin-top:8px;"></div>
+</div>
+<div id="app" style="display:none;"></div>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, set, get, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+const FC={apiKey:"AIzaSyBfIk7IU4BX619ngyKOoE51zJ893pJYVkc",authDomain:"yakiniku-shift.firebaseapp.com",databaseURL:"https://yakiniku-shift-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"yakiniku-shift",storageBucket:"yakiniku-shift.firebasestorage.app",messagingSenderId:"230372004048",appId:"1:230372004048:web:04228eabdd19e165200ed5"};
+
+const TIME_LIST=[];
+for(let h=9;h<=20;h++){TIME_LIST.push(`${String(h).padStart(2,"0")}:00`);if(h<20)TIME_LIST.push(`${String(h).padStart(2,"0")}:30`);}
+
+const STORES=["焼肉はじめ","焼肉つづき"];
+const DAYS=["月","火","水","木","金","土","日"];
+const ROLES={president:"社長",manager:"社員",hall:"ホール",kitchen:"キッチン",part:"アルバイト"};
+const MGMT=["president","manager"];
+const ROLE_C={
+  president:{bg:"#fdf2f8",text:"#9d174d",border:"#f9a8d4"},
+  manager:  {bg:"#fef9c3",text:"#a16207",border:"#fde047"},
+  hall:     {bg:"#dbeafe",text:"#1d4ed8",border:"#93c5fd"},
+  kitchen:  {bg:"#ffedd5",text:"#c2410c",border:"#fdba74"},
+  part:     {bg:"#dcfce7",text:"#15803d",border:"#86efac"},
+};
+const WISH_OPTS=[
+  {val:"night",  label:"夜　〇",  sub:"夜出られる",  bg:"#fdf2f8",color:"#9d174d",border:"#f9a8d4"},
+  {val:"lunch",  label:"昼　〇",  sub:"昼出られる",  bg:"#dbeafe",color:"#1d4ed8",border:"#93c5fd"},
+  {val:"both_ok",label:"両方 〇", sub:"昼も夜も出られる",bg:"#dcfce7",color:"#15803d",border:"#86efac"},
+  {val:"both_ng",label:"両方 ✕", sub:"出られない",   bg:"#fee2e2",color:"#dc2626",border:"#fca5a5"},
+];
+const DEFAULT_PW={manager:"yakinikuhajime",part:"123"};
+const HOLIDAYS={"2024-01-01":"元日","2024-01-08":"成人の日","2024-02-11":"建国記念日","2024-02-12":"振替休日","2024-02-23":"天皇誕生日","2024-03-20":"春分の日","2024-04-29":"昭和の日","2024-05-03":"憲法記念日","2024-05-04":"みどりの日","2024-05-05":"こどもの日","2024-05-06":"振替休日","2024-07-15":"海の日","2024-08-11":"山の日","2024-08-12":"振替休日","2024-09-16":"敬老の日","2024-09-22":"秋分の日","2024-09-23":"振替休日","2024-10-14":"スポーツの日","2024-11-03":"文化の日","2024-11-04":"振替休日","2024-11-23":"勤労感謝の日","2025-01-01":"元日","2025-01-13":"成人の日","2025-02-11":"建国記念日","2025-02-23":"天皇誕生日","2025-02-24":"振替休日","2025-03-20":"春分の日","2025-04-29":"昭和の日","2025-05-03":"憲法記念日","2025-05-04":"みどりの日","2025-05-05":"こどもの日","2025-05-06":"振替休日","2025-07-21":"海の日","2025-08-11":"山の日","2025-09-15":"敬老の日","2025-09-23":"秋分の日","2025-10-13":"スポーツの日","2025-11-03":"文化の日","2025-11-23":"勤労感謝の日","2025-11-24":"振替休日","2026-01-01":"元日","2026-01-12":"成人の日","2026-02-11":"建国記念日","2026-02-23":"天皇誕生日","2026-03-20":"春分の日","2026-04-29":"昭和の日","2026-05-03":"憲法記念日","2026-05-04":"みどりの日","2026-05-05":"こどもの日","2026-07-20":"海の日","2026-08-11":"山の日","2026-09-21":"敬老の日","2026-09-22":"秋分の日","2026-10-12":"スポーツの日","2026-11-03":"文化の日","2026-11-23":"勤労感謝の日"};
+
+let STATE={
+  role:null,tab:"staff",
+  staff:[],wishes:{},shifts:{},pws:{...DEFAULT_PW},submit:{},
+  shiftWeek:getMon(),wishWeek:getMon(),ovWeek:getMon(),
+  activeStore:0,selDate:null,pickStaff:null,pickTime:TIME_LIST[4],
+  deleteCandidate:null,me:"",partWeek:getMon(),openDates:{},viewDate:null,partOffset:0,
+  editShift:null,memoModal:null,deadline:localStorage.getItem('sk_deadline')||'',editStaffId:null,editStaffName:'',
+};
+let db;
+
+async function init(){
+  const lm=document.getElementById("loading-msg");
+  const to=setTimeout(()=>{lm.textContent="接続に時間がかかっています...";},3000);
+  try{
+    const app=initializeApp(FC);db=getDatabase(app);
+    await Promise.race([get(ref(db,"pws")),new Promise((_,r)=>setTimeout(()=>r(new Error("t")),8000))]);
+    clearTimeout(to);
+    const ps=await get(ref(db,"pws"));
+    if(!ps.exists())await set(ref(db,"pws"),DEFAULT_PW);else STATE.pws=ps.val();
+    startListeners();
+    document.getElementById("loading-screen").style.display="none";
+    document.getElementById("app").style.display="block";
+    render();
+  }catch(e){
+    clearTimeout(to);
+    document.getElementById("loading-screen").innerHTML=`<div style="text-align:center;padding:24px;max-width:340px;"><div style="font-size:32px;margin-bottom:12px;">⚠️</div><div style="font-size:16px;font-weight:700;color:#dc2626;margin-bottom:8px;">接続できませんでした</div><div style="font-size:13px;color:#64748b;margin-bottom:20px;line-height:1.8;">Firebaseのルールを確認してください。</div><button onclick="location.reload()" style="background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">🔄 再読み込み</button></div>`;
+  }
+}
+
+function startListeners(){
+  onValue(ref(db,"staff"),   s=>{STATE.staff  =s.val()?Object.values(s.val()):[];render();});
+  onValue(ref(db,"wishes"),  s=>{STATE.wishes =s.val()||{};render();});
+  onValue(ref(db,"shifts"),  s=>{STATE.shifts =s.val()||{};render();});
+  onValue(ref(db,"pws"),     s=>{if(s.val())STATE.pws=s.val();});
+  onValue(ref(db,"submit"),  s=>{STATE.submit =s.val()||{};render();});
+}
+
+async function fbSet(p,v){await set(ref(db,p),v);}
+async function fbUpd(p,v){await update(ref(db,p),v);}
+async function fbDel(p){await remove(ref(db,p));}
+
+function getMon(d=new Date()){
+  const x=new Date(d);
+  const localY=x.getFullYear(),localM=x.getMonth(),localD=x.getDate();
+  const localDate=new Date(localY,localM,localD);
+  const w=localDate.getDay();
+  const diff=w===0?-6:1-w;
+  localDate.setDate(localD+diff);
+  const yy=localDate.getFullYear();
+  const mm=String(localDate.getMonth()+1).padStart(2,"0");
+  const dd=String(localDate.getDate()).padStart(2,"0");
+  return `${yy}-${mm}-${dd}`;
+}
+function twoWeekDates(s){
+  return Array.from({length:14},(_,i)=>{
+    const[y,m,d]=s.split("-").map(Number);
+    const dt=new Date(y,m-1,d+i);
+    const yy=dt.getFullYear();
+    const mm=String(dt.getMonth()+1).padStart(2,"0");
+    const dd=String(dt.getDate()).padStart(2,"0");
+    return `${yy}-${mm}-${dd}`;
+  });
+}
+function sevenDates(s){
+  return Array.from({length:7},(_,i)=>{
+    const[y,m,d]=s.split("-").map(Number);
+    const dt=new Date(y,m-1,d+i);
+    const yy=dt.getFullYear();
+    const mm=String(dt.getMonth()+1).padStart(2,"0");
+    const dd=String(dt.getDate()).padStart(2,"0");
+    return `${yy}-${mm}-${dd}`;
+  });
+}
+function fmt(s){const d=new Date(s+"T00:00:00");return`${d.getMonth()+1}/${d.getDate()}`;}
+function dayCol(s){
+  if(HOLIDAYS[s])return"#dc2626";
+  const[y,m,d]=s.split("-").map(Number);
+  const w=new Date(y,m-1,d).getDay();
+  return w===0?"#dc2626":w===6?"#2563eb":"#334155";
+}
+function thBg(s){
+  if(HOLIDAYS[s])return"#fff1f2";
+  const[y,m,d]=s.split("-").map(Number);
+  const w=new Date(y,m-1,d).getDay();
+  return w===0?"#fff1f2":w===6?"#eff6ff":"#f8fafc";
+}
+function getW(date,sid){return(STATE.wishes[date]&&STATE.wishes[date][sid])||{};}
+function getShifts(si,date){return((STATE.shifts[`store${si}`]||{})[date])||[];}
+function available(date){return STATE.staff.filter(s=>{const w=getW(date,s.id).type||"";return w==="both_ok"||w==="lunch"||w==="night";});}
+function recentWeeks(n){const w=[];const d=new Date();d.setDate(d.getDate()-((d.getDay()||7)-1));for(let i=0;i<n;i++){const x=new Date(d);x.setDate(x.getDate()-i*7);w.push(x.toISOString().split("T")[0]);}return w;}
+function hasSubmitted(sid,ws){return twoWeekDates(ws).some(date=>{const w=(STATE.wishes[date]&&STATE.wishes[date][sid]);return w&&w.type;});}
+function unsubCountFor(s){return recentWeeks(8).filter(w=>!hasSubmitted(s.id,w)).length;}
+function getUnsub(){return STATE.staff.filter(s=>!MGMT.includes(s.role)&&!hasSubmitted(s.id,getMon()));}
+function mgrBadge(role){if(!MGMT.includes(role))return"";const rc=ROLE_C[role];return`<span class="mgr-badge" style="background:${rc.text};">社</span>`;}
+function wishOptLabel(val){const o=WISH_OPTS.find(x=>x.val===val);return o?o.label:"−";}
+function wishOptStyle(val){return WISH_OPTS.find(x=>x.val===val)||{bg:"#f1f5f9",color:"#94a3b8",border:"#e2e8f0"};}
+
+let toastTimer=null;
+function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");if(toastTimer)clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2500);}
+function setState(obj){Object.assign(STATE,obj);render();}
+
+function login(){
+  const pw=document.getElementById("pw-input").value;
+  if(pw===STATE.pws.manager){STATE.role="manager";STATE.tab="overview";render();checkAutoDel();return;}
+  if(pw===STATE.pws.part){STATE.role="part";render();return;}
+  const card=document.querySelector(".login-card");
+  card.style.animation="shake .4s ease";setTimeout(()=>card.style.animation="",500);
+  document.getElementById("pw-error").textContent="⚠ パスワードが違います";
+}
+function checkAutoDel(){
+  const weeks=recentWeeks(8);
+  const toDelete=STATE.staff.filter(s=>{
+    if(MGMT.includes(s.role))return false;
+    const submitted=Object.keys(STATE.submit[s.id]||{});
+    const fms=new Date(getMon(new Date(s.id))+"T00:00:00").getTime();
+    return fms<=new Date(weeks[weeks.length-1]+"T00:00:00").getTime()&&!weeks.some(w=>submitted.includes(w));
+  });
+  if(toDelete.length>0)setState({deleteCandidate:toDelete});
+}
+async function confirmDelete(){
+  if(!STATE.deleteCandidate)return;
+  const cnt=STATE.deleteCandidate.length;
+  for(const s of STATE.deleteCandidate)await fbDel(`staff/${s.id}`);
+  setState({deleteCandidate:null});showToast(`${cnt}名を自動削除しました`);
+}
+async function addStaff(){
+  const name=document.getElementById("s-name").value.trim();
+  if(!name){showToast("名前を入力してください");return;}
+  const role=document.getElementById("s-role").value;
+  const max=+document.getElementById("s-max").value;
+  const note=document.getElementById("s-note").value.trim();
+  const id=Date.now();
+  await fbSet(`staff/${id}`,{id,name,role,maxDays:max,note});
+  document.getElementById("s-name").value="";document.getElementById("s-note").value="";
+  showToast(name+" を追加しました ✓");
+}
+async function removeStaff(id){if(!confirm("このスタッフを削除しますか？"))return;await fbDel(`staff/${id}`);}
+async function setWish(date,sid,field,val){await fbUpd(`wishes/${date}/${sid}`,{[field]:val});}
+async function saveWishes(){
+  if(STATE.me)await fbUpd(`submit/${STATE.me}`,{[STATE.partWeek]:true});
+  showToast("希望を保存しました ✓");
+}
+function setActiveStore(i){setState({activeStore:i,selDate:null,pickStaff:null});}
+function toggleDay(date){
+  const o={...STATE.openDates};o[date]=!o[date];
+  setState({openDates:o,selDate:date,pickStaff:null});
+}
+function selectPickStaff(sid){
+  const s=STATE.staff.find(x=>x.id===+sid);if(!s)return;
+  setState({pickStaff:STATE.pickStaff?.id===s.id?null:s});
+}
+async function addPickedStaff(){
+  const{selDate,activeStore,pickStaff,pickTime}=STATE;
+  if(!selDate||!pickStaff)return;
+  const existing=getShifts(activeStore,selDate);
+  const wObj=getW(selDate,pickStaff.id);
+  const isBothOk=wObj.type==="both_ok";
+  const alreadyCount=existing.filter(sh=>sh.staffId===pickStaff.id).length;
+  if(isBothOk&&alreadyCount>=2){showToast(`${pickStaff.name} は昼・夜ともに追加済みです`);return;}
+  if(!isBothOk&&alreadyCount>=1){showToast(`${pickStaff.name} はすでに追加済みです`);return;}
+  await fbSet(`shifts/store${activeStore}/${selDate}`,[...existing,{staffId:pickStaff.id,time:pickTime}]);
+  setState({pickStaff:null});
+  showToast(`${pickStaff.name} を追加しました ✓${isBothOk&&alreadyCount===0?" （昼）":""}${isBothOk&&alreadyCount===1?" （夜）":""}`);
+}
+async function removeShift(key){
+  const[si,date,idx]=key.split("|");
+  const arr=[...getShifts(+si,date)];arr.splice(+idx,1);
+  await fbSet(`shifts/store${si}/${date}`,arr.length>0?arr:null);
+}
+async function applyEditShift(){
+  const{si,date,idx,time}=STATE.editShift;
+  const arr=[...getShifts(si,date)];
+  arr[idx]={...arr[idx],time};
+  await fbSet(`shifts/store${si}/${date}`,arr);
+  STATE.editShift=null;render();
+  showToast("時間を変更しました ✓");
+}
+async function autoFill(si){
+  const dates=twoWeekDates(STATE.shiftWeek);const updates={};
+  dates.forEach(date=>{
+    const already=new Set(getShifts(si,date).map(sh=>sh.staffId));
+    const storeName=si===0?"hajime":"tsuzuki";
+    const avail=available(date).filter(s=>{
+      if(already.has(s.id))return false;
+      const wObj=getW(date,s.id);
+      if(!wObj.store||wObj.store==="both")return true;
+      return wObj.store===storeName;
+    });
+    const existing=[...getShifts(si,date)];
+    for(const s of avail){
+      const wObj=getW(date,s.id);
+      let t="11:00";
+      if(wObj.type==="both_ok") t=wObj.lunchFrom||wObj.dinnerFrom||"11:00";
+      else t=wObj.timeFrom||"11:00";
+      existing.push({staffId:s.id,time:t});
+    }
+    if(existing.length>0)updates[date]=existing;
+  });
+  await fbUpd(`shifts/store${si}`,updates);
+  showToast(`${STORES[si]} 自動割り当て完了 ⚡`);
+}
+async function saveStaffName(){
+  const{editStaffId,editStaffName}=STATE;
+  if(!editStaffId||!editStaffName.trim()){showToast("名前を入力してください");return;}
+  await fbUpd(`staff/${editStaffId}`,{name:editStaffName.trim()});
+  STATE.editStaffId=null;STATE.editStaffName="";render();
+  showToast("名前を変更しました ✓");
+}
+function saveDeadline(){
+  const v=document.getElementById("deadline-inp")?.value||"";
+  STATE.deadline=v;
+  localStorage.setItem("sk_deadline",v);
+  showToast("提出期限を設定しました ✓");
+}
+async function savePw(){
+  const nm=document.getElementById("new-mgr-pw").value;
+  const np=document.getElementById("new-part-pw").value;
+  await fbUpd("pws",{manager:nm||STATE.pws.manager,part:np||STATE.pws.part});
+  document.getElementById("new-mgr-pw").value="";document.getElementById("new-part-pw").value="";
+  showToast("パスワードを更新しました ✓");
+}
+function showShiftView(date){setState({viewDate:date});}
+function closeShiftView(){setState({viewDate:null});}
+
+function render(){
+  const app=document.getElementById("app");if(!app)return;
+  if(!STATE.role){app.innerHTML=renderLogin();return;}
+  if(STATE.role==="part"){app.innerHTML=renderPart();return;}
+  app.innerHTML=renderManager();
+  if(STATE.deleteCandidate)app.insertAdjacentHTML("beforeend",renderDeleteModal());
+  if(STATE.viewDate)app.insertAdjacentHTML("beforeend",renderShiftViewModal());
+  if(STATE.memoModal!=null)app.insertAdjacentHTML("beforeend",renderMemoModal());
+  if(STATE.editStaffId)app.insertAdjacentHTML("beforeend",renderEditStaffModal());
+}
+
+function renderLogin(){
+  return`<div class="login-wrap">
+    <div style="text-align:center;margin-bottom:28px;">
+      <div style="font-size:12px;color:#94a3b8;letter-spacing:3px;margin-bottom:10px;">シフト管理システム</div>
+      <div style="font-size:24px;font-weight:900;">🔥 焼肉はじめ・焼肉つづき</div>
+      <div style="font-size:14px;color:#94a3b8;margin-top:6px;">シフト表</div>
+    </div>
+    <div class="login-card">
+      <div class="role-card-wrap">
+        <div class="role-card" style="background:#fff7ed;border-color:#fed7aa;"><div style="font-size:28px;">👔</div><div style="font-size:14px;font-weight:700;color:#f97316;margin-top:6px;">社員・店長</div><div style="font-size:12px;color:#94a3b8;margin-top:3px;">全機能</div></div>
+        <div class="role-card" style="background:#f5f3ff;border-color:#ddd6fe;"><div style="font-size:28px;">🧑‍🍳</div><div style="font-size:14px;font-weight:700;color:#8b5cf6;margin-top:6px;">アルバイト</div><div style="font-size:12px;color:#94a3b8;margin-top:3px;">希望入力・シフト確認</div></div>
+      </div>
+      <div class="field"><label>パスワードを入力</label><input type="password" id="pw-input" placeholder="パスワード" onkeydown="if(event.key==='Enter')login()" autofocus class="inp" style="font-size:18px;padding:14px;"></div>
+      <div id="pw-error" style="color:#dc2626;font-size:13px;margin-bottom:10px;"></div>
+      <button class="btn btn-primary" style="width:100%;font-size:16px;" onclick="login()">ログイン →</button>
+      <div style="text-align:center;margin-top:14px;"><span class="sync-badge"><span class="sync-dot"></span>リアルタイム同期中</span></div>
+    </div>
+  </div>`;
+}
+
+function wishRowHTML(date,dayIdx,sid){
+  const wObj=getW(date,sid);const type=wObj.type||"";
+  const holiday=HOLIDAYS[date];const[_y,_m,_d]=date.split("-").map(Number);const wd=new Date(_y,_m-1,_d).getDay();
+  const cls=holiday?"holiday":wd===0?"holiday":wd===6?"saturday":"";
+  const col=dayCol(date);
+  return`<div class="wish-row ${cls}">
+    <div class="wish-day">
+      <span style="color:${col};">${DAYS[dayIdx]} ${fmt(date)}</span>
+      ${holiday?`<span style="background:#fff1f2;color:#dc2626;border:1px solid #fca5a5;border-radius:20px;padding:3px 10px;font-size:12px;">🎌 ${holiday}</span>`:""}
+    </div>
+    <div class="wish-opts">
+      ${WISH_OPTS.map(o=>{const isSel=type===o.val;return`<button class="wish-opt-btn" onclick="setWish('${date}',${sid},'type','${isSel?"":o.val}')"
+        style="border-color:${isSel?o.color:"#e2e8f0"};background:${isSel?o.bg:"#fff"};color:${isSel?o.color:"#94a3b8"};">
+        <div style="font-size:17px;">${o.label}</div>
+        <div style="font-size:11px;opacity:.7;margin-top:2px;">${o.sub}</div>
+      </button>`;}).join("")}
+    </div>
+    ${type&&type!=="both_ng"?`<div style="margin-top:12px;">
+      <div style="font-size:13px;font-weight:700;color:#475569;margin-bottom:8px;">どちらの店舗で出勤できますか？</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        ${[["hajime","🔥 焼肉はじめ","#fff7ed","#f97316","#fed7aa"],["tsuzuki","🔥 焼肉つづき","#f5f3ff","#8b5cf6","#ddd6fe"],["both","どちらでも","#f0fdf4","#16a34a","#86efac"]].map(([val,label,bg,col,bdr])=>`
+          <button onclick="setWish('${date}',${sid},'store','${wObj.store===val?"":val}')"
+            style="padding:10px 14px;border-radius:10px;border:2px solid ${wObj.store===val?col:bdr};background:${wObj.store===val?bg:"#fff"};color:${wObj.store===val?col:"#94a3b8"};font-size:14px;font-weight:700;cursor:pointer;min-height:44px;font-family:inherit;">
+            ${label}
+          </button>`).join("")}
+      </div>
+    </div>`:""}
+    ${type?`<div class="wish-extra-block">
+      ${type==="both_ok"?`
+        <div class="wish-extra-title">昼（ランチ）の入り時間（任意）</div>
+        <select class="inp" style="margin-bottom:10px;" onchange="setWish('${date}',${sid},'lunchFrom',this.value)">
+          <option value="">選択しない</option>
+          ${TIME_LIST.map(t=>`<option value="${t}" ${wObj.lunchFrom===t?"selected":""}>${t}</option>`).join("")}
+        </select>
+        <div class="wish-extra-title">夜（ディナー）の入り時間（任意）</div>
+        <select class="inp" style="margin-bottom:10px;" onchange="setWish('${date}',${sid},'dinnerFrom',this.value)">
+          <option value="">選択しない</option>
+          ${TIME_LIST.map(t=>`<option value="${t}" ${wObj.dinnerFrom===t?"selected":""}>${t}</option>`).join("")}
+        </select>
+      `:type==="night"?`
+        <div class="wish-extra-title">夜（ディナー）の入り時間（任意）</div>
+        <select class="inp" style="margin-bottom:10px;" onchange="setWish('${date}',${sid},'timeFrom',this.value)">
+          <option value="">選択しない</option>
+          ${TIME_LIST.map(t=>`<option value="${t}" ${wObj.timeFrom===t?"selected":""}>${t}</option>`).join("")}
+        </select>
+      `:type==="lunch"?`
+        <div class="wish-extra-title">昼（ランチ）の入り時間（任意）</div>
+        <select class="inp" style="margin-bottom:10px;" onchange="setWish('${date}',${sid},'timeFrom',this.value)">
+          <option value="">選択しない</option>
+          ${TIME_LIST.map(t=>`<option value="${t}" ${wObj.timeFrom===t?"selected":""}>${t}</option>`).join("")}
+        </select>
+      `:""}
+      <div class="wish-extra-title">備考・メモ（50文字まで記入できます）</div>
+      <textarea class="big-textarea" placeholder="例：遅刻するかもしれません、早退希望あり、用事が入るかも" maxlength="50"
+        onblur="setWish('${date}',${sid},'memo',this.value)">${wObj.memo||""}</textarea>
+      <div style="font-size:11px;color:#94a3b8;text-align:right;margin-top:4px;">最大50文字</div>
+    </div>`:""}
+  </div>`;
+}
+
+function renderPart(){
+  const _monBase=getMon();
+  const[_by,_bm,_bd]=_monBase.split("-").map(Number);
+  const _shifted=new Date(_by,_bm-1,_bd+STATE.partOffset*14);
+  const baseWeek=`${_shifted.getFullYear()}-${String(_shifted.getMonth()+1).padStart(2,"0")}-${String(_shifted.getDate()).padStart(2,"0")}`;
+  const myStaff=STATE.staff.filter(s=>!MGMT.includes(s.role));
+  const dates=twoWeekDates(baseWeek);const me=STATE.me;
+  const[_w1y,_w1m,_w1d]=baseWeek.split("-").map(Number);
+  const w1s=new Date(_w1y,_w1m-1,_w1d),w1e=new Date(_w1y,_w1m-1,_w1d+6);
+  const w2s=new Date(_w1y,_w1m-1,_w1d+7),w2e=new Date(_w1y,_w1m-1,_w1d+13);
+  const fd=d=>`${d.getMonth()+1}月${d.getDate()}日`;
+  const ptab=STATE.tab==="ov_part"?"ov_part":"wish";
+  return`
+    <div class="header">
+      <div class="header-top">
+        <div><div class="header-title">🔥 焼肉はじめ・焼肉つづき</div><div style="font-size:12px;color:#94a3b8;">アルバイト</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="sync-badge"><span class="sync-dot"></span>同期中</span>
+          <button class="logout-btn" onclick="STATE.role=null;STATE.me='';STATE.tab='overview';render();">ログアウト</button>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="${ptab==="wish"?"active":""}" onclick="STATE.tab='wish';render();">📝 希望入力</button>
+        <button class="${ptab==="ov_part"?"active":""}" onclick="STATE.tab='ov_part';render();">📋 シフト確認</button>
+      </nav>
+    </div>
+    <div class="main">
+      ${ptab==="ov_part"?renderOverview(false):`
+        <div class="card">
+          <div class="card-title">📝 出勤希望を入力</div>
+          ${myStaff.length===0?`<div class="empty">スタッフが登録されていません。社員にご連絡ください。</div>`:`
+            <div class="field">
+              <label>あなたの名前</label>
+              <select class="inp" onchange="STATE.me=+this.value||'';render();">
+                <option value="">選択してください</option>
+                ${myStaff.map(s=>`<option value="${s.id}" ${STATE.me===s.id?"selected":""}>${s.name}</option>`).join("")}
+              </select>
+            </div>
+            ${STATE.deadline?`<div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+              <div style="font-size:22px;">📅</div>
+              <div><div style="font-size:12px;color:#a16207;font-weight:700;">シフト希望の提出期限</div>
+              <div style="font-size:18px;font-weight:900;color:#f97316;">${STATE.deadline}</div></div>
+            </div>`:""}
+            <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
+              <button onclick="STATE.partOffset=Math.max(0,STATE.partOffset-1);render();"
+                style="flex:1;padding:12px;border-radius:10px;border:2px solid ${STATE.partOffset===0?'#e2e8f0':'#fed7aa'};background:${STATE.partOffset===0?'#f8fafc':'#fff7ed'};color:${STATE.partOffset===0?'#94a3b8':'#f97316'};font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;${STATE.partOffset===0?'opacity:.4;cursor:not-allowed;':''}">
+                ← 今の2週間
+              </button>
+              <button onclick="STATE.partOffset=Math.min(2,STATE.partOffset+1);render();"
+                style="flex:1;padding:12px;border-radius:10px;border:2px solid #ddd6fe;background:#f5f3ff;color:#8b5cf6;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">
+                次の2週間 →
+              </button>
+            </div>
+            <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:13px;font-weight:700;color:#15803d;">
+              📅 ${(()=>{const[bY,bM,bD]=baseWeek.split("-").map(Number);const w1=new Date(bY,bM-1,bD);const w2=new Date(bY,bM-1,bD+13);return w1.getMonth()+1+"月"+w1.getDate()+"日〜"+w2.getMonth()+1+"月"+w2.getDate()+"日の希望を入力してください";})()}
+            </div>
+            <div class="info-box" style="margin-bottom:16px;">
+              <strong>夜〇</strong> 夜（ディナー）出られる　<strong>昼〇</strong> 昼（ランチ）出られる<br>
+              <strong>両方〇</strong> 昼も夜も出られる　<strong>両方✕</strong> 出られない<br>
+              <span style="color:#16a34a;font-weight:700;">✅ 入力はリアルタイムで社員に届きます</span>
+            </div>
+            ${me?`
+              <div class="week-label" style="color:#f97316;border-color:#fed7aa;">第1週　${fd(w1s)} 〜 ${fd(w1e)}</div>
+              ${dates.slice(0,7).map((date,i)=>wishRowHTML(date,i,me)).join("")}
+              <div class="week-label" style="color:#8b5cf6;border-color:#ddd6fe;margin-top:20px;">第2週　${fd(w2s)} 〜 ${fd(w2e)}</div>
+              ${dates.slice(7,14).map((date,i)=>wishRowHTML(date,i,me)).join("")}
+              <button class="btn btn-primary" style="width:100%;margin-top:20px;font-size:16px;" onclick="saveWishes()">💾 希望を保存（完了）</button>
+            `:`<div class="empty">上から名前を選んでください 👆</div>`}
+          `}
+        </div>
+      `}
+    </div>`;
+}
+
+function renderOverview(isManager){
+  const _rawOW=STATE.shiftWeek||getMon();
+  const[_oy2,_om2,_od2]=_rawOW.split("-").map(Number);
+  STATE.shiftWeek=getMon(new Date(_oy2,_om2-1,_od2));
+  if(STATE.shiftWeek<getMon()) STATE.shiftWeek=getMon();
+  const weekStart=STATE.shiftWeek;
+  const week1=sevenDates(weekStart);
+  const[_oy,_om,_od]=weekStart.split("-").map(Number);const w2start=new Date(_oy,_om-1,_od+7);
+  const week2=sevenDates(`${w2start.getFullYear()}-${String(w2start.getMonth()+1).padStart(2,"0")}-${String(w2start.getDate()).padStart(2,"0")}`);
+  const fd=s=>{const d=new Date(s+"T00:00:00");return`${d.getMonth()+1}月${d.getDate()}日`;};
+
+  function buildGrid(wk){
+    const rows=wk.map((date,i)=>{
+      const[_ry,_rm,_rd]=date.split("-").map(Number);const wd=new Date(_ry,_rm-1,_rd).getDay();
+      const col=dayCol(date);
+      const bg=HOLIDAYS[date]?"#fff1f2":wd===0?"#fff1f2":wd===6?"#eff6ff":"#f8fafc";
+      const holiday=HOLIDAYS[date];
+      const storeCells=STORES.map((sname,si)=>{
+        const ds=getShifts(si,date);
+        const sorted=[...ds].sort((a,b)=>a.time.localeCompare(b.time));
+        if(sorted.length===0){
+          return`<td class="ov-store-cell" style="border:1px solid var(--bd);background:#fff;"><div class="ov-empty">未設定</div></td>`;
+        }
+        const entries=sorted.map(sh=>{
+          const s=STATE.staff.find(x=>x.id===sh.staffId);if(!s)return"";
+          const wObj=getW(date,s.id);
+          const memoEsc=wObj.memo?(wObj.memo.replace(/'/g,"\\'")):""  ;
+          return`<div class="ov-entry">
+            <div class="ov-entry-row">
+              <span class="ov-time">${sh.time}</span>
+              <span class="ov-name">${mgrBadge(s.role)}${s.name}</span>
+            </div>
+            ${wObj.memo?`<div class="ov-memo" onclick="STATE.memoModal='${memoEsc}';render();">💬 ${wObj.memo.length>12?wObj.memo.slice(0,12)+"…":wObj.memo}　<span style='font-size:9px;'>（タップで全文）</span></div>`:""}
+          </div>`;
+        }).join("");
+        return`<td class="ov-store-cell" style="border:1px solid var(--bd);background:#fff;">${entries}</td>`;
+      }).join("");
+      return`<tr>
+        <td class="ov-day-cell" style="border:1px solid var(--bd);background:${bg};min-width:52px;">
+          <div class="ov-day-name" style="color:${col};">${DAYS[i]}</div>
+          <div class="ov-day-date">${fmt(date)}</div>
+          ${holiday?`<div style="font-size:9px;color:#dc2626;">🎌</div>`:""}
+        </td>
+        ${storeCells}
+      </tr>`;
+    }).join("");
+    return`<table class="ov-table">
+      <thead><tr>
+        <th style="min-width:52px;background:#f8fafc;">日付</th>
+        <th style="background:#fff7ed;color:#f97316;min-width:120px;">🔥 焼肉はじめ</th>
+        <th style="background:#f5f3ff;color:#8b5cf6;min-width:120px;">🔥 焼肉つづき</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  return`
+    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
+      <div style="flex:1;min-width:160px;"><input type="date" value="${weekStart}" class="inp" onchange="STATE.shiftWeek=getMon(new Date(this.value+'T12:00:00'));render();"></div>
+      <button class="btn btn-light btn-sm" onclick="STATE.shiftWeek=getMon();render();">今週〜</button>
+    </div>
+    <div class="shift-week-block" style="overflow:hidden;">
+      <div class="ov-week-label" style="color:#f97316;border-color:#fed7aa;">第1週　${fd(week1[0])} 〜 ${fd(week1[6])}</div>
+      <div style="overflow-x:auto;">${buildGrid(week1)}</div>
+    </div>
+    <div class="shift-week-block" style="overflow:hidden;">
+      <div class="ov-week-label" style="color:#8b5cf6;border-color:#ddd6fe;">第2週　${fd(week2[0])} 〜 ${fd(week2[6])}</div>
+      <div style="overflow-x:auto;">${buildGrid(week2)}</div>
+    </div>`;
+}
+
+function renderManager(){
+  const{tab}=STATE;const unsub=getUnsub();
+  const tabs=[["overview","📋 シフト一覧"],["shift","📅 シフト作成"],["wish","📝 希望確認"],["staff","👤 スタッフ"],["settings","⚙️ 設定"]];
+  return`
+    <div class="header">
+      <div class="header-top">
+        <div><div class="header-title">🔥 焼肉はじめ・焼肉つづき シフト表</div><div style="font-size:12px;color:#94a3b8;">管理画面</div></div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <span class="sync-badge"><span class="sync-dot"></span>同期中</span>
+          ${unsub.length>0?`<span style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;">未提出${unsub.length}人</span>`:""}
+          <span class="header-badge" style="background:#fef9c3;color:#a16207;border:1px solid #fde047;">社員</span>
+          <button class="logout-btn" onclick="STATE.role=null;STATE.tab='overview';render();">ログアウト</button>
+        </div>
+      </div>
+      <nav class="nav">
+        ${tabs.map(([k,l])=>`<button class="${tab===k?"active":""}" onclick="STATE.tab='${k}';render();">${l}</button>`).join("")}
+      </nav>
+    </div>
+    <div class="main">
+      ${tab==="overview"?renderOverview(true):""}
+      ${tab==="shift"?renderShiftTab():""}
+      ${tab==="wish"?renderWishTab(unsub):""}
+      ${tab==="staff"?renderStaffTab(unsub):""}
+      ${tab==="settings"?renderSettingsTab():""}
+    </div>`;
+}
+
+function renderStaffTab(unsub){
+  return`
+    ${unsub.length>0?`<div style="background:#fff;border:2px solid #fca5a5;border-radius:14px;padding:16px;margin-bottom:16px;">
+      <div style="font-size:14px;font-weight:700;color:#dc2626;margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="background:#dc2626;color:#fff;border-radius:20px;padding:3px 12px;font-size:13px;">！</span>今週 未提出（${unsub.length}人）</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">${unsub.map(s=>`<span style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;">${s.name}（${unsubCountFor(s)}週）</span>`).join("")}</div>
+    </div>`:""}
+    <div class="card">
+      <div class="card-title">👤 スタッフ登録</div>
+      <div class="field"><label>名前</label><input id="s-name" class="inp" placeholder="例: 田中 花子"></div>
+      <div class="field"><label>役職</label><select id="s-role" class="inp">${Object.entries(ROLES).map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
+      <div class="field"><label>週の最大勤務日数</label><select id="s-max" class="inp">${[1,2,3,4,5,6,7,14].map(n=>`<option value="${n}" ${n===5?"selected":""}>${n}日</option>`).join("")}</select></div>
+      <div class="field"><label>備考</label><input id="s-note" class="inp" placeholder="例: 月曜固定休"></div>
+      <button class="btn btn-primary" style="width:100%;" onclick="addStaff()">＋ スタッフを追加</button>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 登録済みスタッフ（${STATE.staff.length}人）</div>
+      ${STATE.staff.length===0?`<div class="empty">まだ登録されていません</div>`:
+        STATE.staff.map(s=>{
+          const rc=ROLE_C[s.role]||ROLE_C.part;const isUnsub=unsub.some(u=>u.id===s.id);
+          return`<div class="staff-item ${isUnsub?"unsub":""}">
+            <div class="staff-avatar">${s.name[0]}</div>
+            <div class="staff-info">
+              <div class="staff-name-row">${mgrBadge(s.role)}${s.name}${isUnsub?`<span style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:20px;font-size:11px;padding:2px 10px;font-weight:700;">未提出${unsubCountFor(s)}週</span>`:""}</div>
+              <div class="staff-sub">週最大${s.maxDays}日${s.note?" / "+s.note:""}</div>
+            </div>
+            <span class="role-badge" style="background:${rc.bg};color:${rc.text};border:1px solid ${rc.border};">${ROLES[s.role]}</span>
+            <button class="btn btn-light btn-sm" onclick="STATE.editStaffId=${s.id};STATE.editStaffName='${s.name.replace(/'/g,"\\'")}';render();">✏️</button>
+            <button class="btn btn-danger btn-sm" onclick="removeStaff(${s.id})">削除</button>
+          </div>`;
+        }).join("")}
+    </div>`;
+}
+
+function renderWishTab(unsub){
+  const _rawWW=STATE.shiftWeek||getMon();
+  const[_wy2,_wm2,_wd2]=_rawWW.split("-").map(Number);
+  STATE.shiftWeek=getMon(new Date(_wy2,_wm2-1,_wd2));
+  if(STATE.shiftWeek<getMon()) STATE.shiftWeek=getMon();
+  STATE.wishWeek=STATE.shiftWeek;
+  const wDates=twoWeekDates(STATE.wishWeek);
+  const wW1=wDates.slice(0,7),wW2=wDates.slice(7,14);
+  const fd=s=>{const d=new Date(s+"T00:00:00");return`${d.getMonth()+1}月${d.getDate()}日`;};
+  return`
+    <div class="card">
+      <div class="card-title">📝 出勤希望確認（2週間）</div>
+      <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:flex-end;">
+        <div style="flex:1;min-width:160px;"><input type="date" value="${STATE.wishWeek}" class="inp" onchange="STATE.shiftWeek=getMon(new Date(this.value+'T12:00:00'));render();"></div>
+        <button class="btn btn-light btn-sm" onclick="STATE.shiftWeek=getMon();render();">今週〜</button>
+      </div>
+      ${unsub.length>0?`<div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:12px;padding:14px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:700;color:#dc2626;margin-bottom:10px;">📋 今週の未提出スタッフ</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">${unsub.map(s=>`<span style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;">${s.name}</span>`).join("")}</div>
+      </div>`:""}
+      ${STATE.staff.length===0?`<div class="empty">先にスタッフを登録してください</div>`:[
+        [wW1,"第1週","#f97316","#fed7aa"],[wW2,"第2週","#8b5cf6","#ddd6fe"]
+      ].map(([wk,label,col,bd])=>`
+        <div style="margin-bottom:20px;">
+          <div class="week-label" style="color:${col};border-color:${bd};">${label}　${fd(wk[0])} 〜 ${fd(wk[6])}</div>
+          <div class="table-wrap">
+            <table class="wish-tbl">
+              <thead><tr>
+                <th style="text-align:left;min-width:80px;">スタッフ</th>
+                ${wk.map((date,i)=>{const h=HOLIDAYS[date];const c=dayCol(date);return`<th style="background:${thBg(date)};color:${c};min-width:64px;">${DAYS[i]}<br><span style="font-size:11px;">${fmt(date)}</span>${h?`<br><span style="font-size:9px;color:#dc2626;">🎌</span>`:""}</th>`;}).join("")}
+              </tr></thead>
+              <tbody>
+                ${STATE.staff.map(s=>{
+                  const isUnsub=unsub.some(u=>u.id===s.id);
+                  return`<tr>
+                    <td class="name-cell" style="${isUnsub?"background:#fff1f2;":""}">${mgrBadge(s.role)}${s.name}${isUnsub?`<br><span style="font-size:10px;color:#dc2626;">未提出</span>`:""}</td>
+                    ${wk.map(date=>{
+                      const wObj=getW(date,s.id);const t=wObj.type||"";const os=wishOptStyle(t);
+                      return`<td><div style="background:${os.bg};color:${os.color};border-radius:6px;padding:4px 3px;font-size:12px;font-weight:700;border:1px solid ${os.border};">
+                        ${wishOptLabel(t)}
+                        ${wObj.timeFrom?`<div style="font-size:10px;font-weight:400;">${wObj.timeFrom}</div>`:""}
+                        ${wObj.memo?`<div style="font-size:10px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:64px;">💬${wObj.memo}</div>`:""}
+                      </div></td>`;
+                    }).join("")}
+                  </tr>`;
+                }).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>`).join("")}
+    </div>`;
+}
+
+function renderShiftTab(){
+  const _rawSW=STATE.shiftWeek||getMon();
+  const[_sy,_sm,_sd]=_rawSW.split("-").map(Number);
+  STATE.shiftWeek=getMon(new Date(_sy,_sm-1,_sd));
+  if(STATE.shiftWeek<getMon()) STATE.shiftWeek=getMon();
+  STATE.ovWeek=STATE.shiftWeek;
+  const{activeStore,selDate,pickStaff,shiftWeek}=STATE;
+  const sDates=twoWeekDates(shiftWeek);
+  const wk1=sDates.slice(0,7),wk2=sDates.slice(7,14);
+  const thm=activeStore===0
+    ?{accent:"#f97316",light:"#fff7ed",border:"#fed7aa",grad:"linear-gradient(135deg,#f97316,#ea580c)"}
+    :{accent:"#8b5cf6",light:"#f5f3ff",border:"#ddd6fe",grad:"linear-gradient(135deg,#8b5cf6,#7c3aed)"};
+  const fd=s=>{const d=new Date(s+"T00:00:00");return`${d.getMonth()+1}月${d.getDate()}日`;};
+
+  const weekBlock=(wk,wi)=>`
+    <div class="shift-week-block">
+      <div class="shift-week-title" style="color:${wi===0?thm.accent:"#8b5cf6"};border-bottom-color:${wi===0?thm.border:"#ddd6fe"};">
+        第${wi+1}週　${fd(wk[0])} 〜 ${fd(wk[6])}
+      </div>
+      ${wk.map((date,i)=>{
+        const ds=getShifts(activeStore,date);
+        const avail=available(date);
+        const h=HOLIDAYS[date];
+        const col=dayCol(date);
+        const isOpen=STATE.openDates[date]||false;
+        const availForDate=avail.filter(s=>{
+          const wObj=getW(date,s.id);
+          const cnt=ds.filter(sh=>sh.staffId===s.id).length;
+          if(wObj.type==="both_ok") return cnt<2;
+          return cnt<1;
+        });
+        const wishInfoHTML=avail.length>0?`
+          <div style="margin:8px 0 10px;">
+            <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:6px;">📋 この日に希望を出しているスタッフ（${avail.length}人）</div>
+            <div class="wish-info">
+              ${avail.map(s=>{const wObj=getW(date,s.id);const os=wishOptStyle(wObj.type);return`<span class="wish-tag" style="background:${os.bg};color:${os.color};border-color:${os.border};">${s.name}　${wishOptLabel(wObj.type)}${wObj.timeFrom?" "+wObj.timeFrom+"〜":""}</span>`;}).join("")}
+            </div>
+          </div>`:"";
+        return`
+          <div class="shift-day-row">
+            <div class="shift-day-header" onclick="toggleDay('${date}')">
+              <div class="shift-day-name" style="color:${col};">${DAYS[i]}　${fmt(date)}${h?` <span style="font-size:13px;">🎌</span>`:""}</div>
+              <div style="flex:1;">
+                <div style="font-size:14px;color:#64748b;">${ds.length}人追加済み</div>
+                ${avail.length>0?`<div style="font-size:12px;color:${thm.accent};font-weight:700;">希望あり ${avail.length}人 →タップして確認</div>`:`<div style="font-size:12px;color:#94a3b8;">希望者なし</div>`}
+              </div>
+              <div style="font-size:20px;color:${thm.accent};">${isOpen?"▲":"▼"}</div>
+            </div>
+            ${ds.length>0||isOpen?`
+              <div class="shift-day-body">
+                ${wishInfoHTML}
+                ${ds.map((sh,idx)=>{
+                  const s=STATE.staff.find(x=>x.id===sh.staffId);if(!s)return"";
+                  const rc=ROLE_C[s.role]||ROLE_C.part;
+                  const wObj=getW(date,s.id);
+                  const isEditing=STATE.editShift&&STATE.editShift.date===date&&STATE.editShift.idx===idx&&STATE.editShift.si===activeStore;
+                  const sameIdxInDay=ds.slice(0,idx).filter(x=>x.staffId===sh.staffId).length;
+                  const bothOkLabel=wObj.type==="both_ok"?(sameIdxInDay===0?" 【昼】":" 【夜】"):"";
+                  return`<div class="sfc" style="background:${rc.bg};border-color:${isEditing?"#f97316":rc.border};color:${rc.text};">
+                    <div class="sfc-left" onclick="STATE.editShift=${isEditing?null:`{si:${activeStore},date:'${date}',idx:${idx},time:'${sh.time}'}`};STATE.pickStaff=null;render();" style="cursor:pointer;">
+                      <div class="sfc-time">${sh.time}〜</div>
+                      <div class="sfc-name">${mgrBadge(s.role)} ${s.name}${bothOkLabel}</div>
+                      <div class="sfc-role">${ROLES[s.role]}　<span style="font-size:11px;opacity:.6;">✏️ 時間変更</span></div>
+                      ${wObj.memo?`<div class="sfc-memo">💬 ${wObj.memo}</div>`:""}
+                    </div>
+                    <button class="sfc-remove" onclick="removeShift('${activeStore}|${date}|${idx}')" style="color:${rc.text};">✕</button>
+                  </div>
+                  ${isEditing?`<div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:12px;padding:14px;margin-bottom:10px;">
+                    <div style="font-size:14px;font-weight:700;color:#f97316;margin-bottom:10px;">⏰ ${s.name} の時間を変更</div>
+                    <select class="inp" style="margin-bottom:12px;" onchange="STATE.editShift={...STATE.editShift,time:this.value};">
+                      ${TIME_LIST.map(t=>`<option value="${t}" ${sh.time===t?"selected":""}>${t}</option>`).join("")}
+                    </select>
+                    <div class="btn-row">
+                      <button class="btn btn-store${activeStore}" style="flex:1;" onclick="applyEditShift()">変更を保存 ✓</button>
+                      <button class="btn btn-light" onclick="STATE.editShift=null;render();">キャンセル</button>
+                    </div>
+                  </div>`:""}`;
+                }).join("")}
+                ${isOpen?`
+                  ${availForDate.length>0?`
+                    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:14px;margin-bottom:12px;">
+                      <div style="font-size:14px;font-weight:700;color:#15803d;margin-bottom:10px;">✅ 追加できるスタッフ（${availForDate.length}人）</div>
+                      <div style="font-size:12px;color:#475569;margin-bottom:10px;">タップして選択 → 時間を決めて追加</div>
+                      ${availForDate.map(s=>{
+                        const wObj=getW(date,s.id);const os=wishOptStyle(wObj.type);const rc=ROLE_C[s.role]||ROLE_C.part;
+                        const isSel=pickStaff?.id===s.id&&selDate===date;
+                        return`<div class="avail-item ${isSel?"selected":""}" onclick="selectPickStaff(${s.id})" style="${isSel?`border-color:${thm.accent};background:${thm.light};`:""}">
+                          <div style="width:46px;height:46px;border-radius:50%;background:${thm.grad};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;flex-shrink:0;">${s.name[0]}</div>
+                          <div style="flex:1;min-width:0;">
+                            ${(()=>{const wO=getW(date,s.id);const cnt=ds.filter(sh=>sh.staffId===s.id).length;if(wO.type==="both_ok"&&cnt===1)return`<div style="font-size:11px;font-weight:700;color:#f97316;background:#fff7ed;border-radius:20px;padding:2px 10px;margin-bottom:4px;display:inline-block;">夜を追加</div>`;return"";})()}
+                            <div style="font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;">${mgrBadge(s.role)}${s.name}</div>
+                            <div style="display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;align-items:center;">
+                              <span class="role-badge" style="background:${rc.bg};color:${rc.text};border:1px solid ${rc.border};font-size:13px;">${ROLES[s.role]}</span>
+                              <span style="background:${os.bg};color:${os.color};border:1px solid ${os.border};border-radius:20px;padding:3px 10px;font-size:13px;font-weight:700;">${wishOptLabel(wObj.type)}</span>
+                              ${wObj.type==="both_ok"?(wObj.lunchFrom||wObj.dinnerFrom?`<span style="font-size:14px;font-weight:700;color:#475569;">昼${wObj.lunchFrom||"未定"} 夜${wObj.dinnerFrom||"未定"}</span>`:""):(wObj.timeFrom?`<span style="font-size:14px;font-weight:700;color:#475569;">${wObj.timeFrom}〜</span>`:"")}
+                              ${wObj.store?`<span style="font-size:13px;padding:2px 10px;border-radius:20px;font-weight:700;background:${wObj.store==="hajime"?"#fff7ed":wObj.store==="tsuzuki"?"#f5f3ff":"#f0fdf4"};color:${wObj.store==="hajime"?"#f97316":wObj.store==="tsuzuki"?"#8b5cf6":"#16a34a"};border:1px solid ${wObj.store==="hajime"?"#fed7aa":wObj.store==="tsuzuki"?"#ddd6fe":"#86efac"};">${wObj.store==="hajime"?"🔥はじめ":wObj.store==="tsuzuki"?"🔥つづき":"🔥どちらでも"}</span>`:""}
+                            </div>
+                            ${wObj.memo?`<div style="font-size:13px;color:#64748b;margin-top:5px;">💬 ${wObj.memo}</div>`:""}
+                          </div>
+                          <div style="font-size:24px;">${isSel?"✅":"　"}</div>
+                        </div>`;
+                      }).join("")}
+                      ${pickStaff&&selDate===date?`
+                        <div style="background:${thm.light};border:2px solid ${thm.border};border-radius:14px;padding:16px;margin-top:10px;">
+                          <div style="font-size:15px;font-weight:700;color:${thm.accent};margin-bottom:12px;">⏰ ${pickStaff.name} の入り時間</div>
+                          <select class="inp" style="margin-bottom:14px;" onchange="STATE.pickTime=this.value;">
+                            ${TIME_LIST.map(t=>`<option value="${t}" ${STATE.pickTime===t?"selected":""}>${t}</option>`).join("")}
+                          </select>
+                          <div class="btn-row">
+                            <button class="btn btn-store${activeStore}" style="flex:1;" onclick="addPickedStaff()">追加する ✓</button>
+                            <button class="btn btn-light" onclick="STATE.pickStaff=null;render();">キャンセル</button>
+                          </div>
+                        </div>
+                      `:""}
+                    </div>
+                  `:`<div style="font-size:14px;color:#94a3b8;background:#f8fafc;border-radius:10px;padding:12px;margin-bottom:10px;">${avail.length===0?"この日は希望者がいません":"全員すでに追加済みです ✅"}</div>`}
+                  <button class="btn" style="width:100%;margin-top:4px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-size:15px;" onclick="showShiftView('${date}')">📋 この日のシフトを確認</button>
+                `:""}
+              </div>
+            `:""}
+          </div>`;
+      }).join("")}
+    </div>`;
+
+  return`
+    <div class="store-tabs">
+      ${STORES.map((name,i)=>`<button class="store-tab ${activeStore===i?`active${i}`:""}" onclick="setActiveStore(${i})">🔥 ${name}</button>`).join("")}
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
+      <div style="flex:1;min-width:160px;"><input type="date" value="${shiftWeek}" class="inp" onchange="STATE.shiftWeek=getMon(new Date(this.value+'T12:00:00'));render();"></div>
+      <button class="btn btn-light btn-sm" onclick="STATE.shiftWeek=getMon();render();">今週〜</button>
+      <button class="btn btn-store${activeStore} btn-sm" onclick="autoFill(${activeStore})">⚡ 自動割り当て</button>
+    </div>
+    ${weekBlock(wk1,0)}
+    ${weekBlock(wk2,1)}`;
+}
+
+function renderShiftViewModal(){
+  const date=STATE.viewDate;
+  const[_sv,_sm,_sd]=date.split("-").map(Number);const dateObj=new Date(_sv,_sm-1,_sd);
+  const wd=dateObj.getDay();const dayIdx=wd===0?6:wd-1;
+  const holiday=HOLIDAYS[date];
+  const sDates=twoWeekDates(STATE.shiftWeek);
+  const idx=sDates.indexOf(date);
+  const prevDate=idx>0?sDates[idx-1]:null;
+  const nextDate=idx<sDates.length-1?sDates[idx+1]:null;
+  return`<div class="modal-overlay" onclick="if(event.target===this)closeShiftView()">
+    <div class="modal-sheet">
+      <div class="modal-drag"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+        <button onclick="closeShiftView()" style="background:none;border:none;font-size:26px;cursor:pointer;padding:4px;color:#64748b;">✕</button>
+        <div style="font-size:16px;font-weight:700;">シフト確認</div>
+        <div style="width:36px;"></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border-radius:16px;padding:18px 22px;margin-bottom:22px;text-align:center;">
+        <div style="font-size:24px;font-weight:900;">${dateObj.getMonth()+1}月${dateObj.getDate()}日（${DAYS[dayIdx]}）</div>
+        ${holiday?`<div style="font-size:14px;opacity:.85;margin-top:5px;">🎌 ${holiday}</div>`:""}
+      </div>
+      <div style="display:flex;gap:10px;margin-bottom:22px;">
+        ${prevDate?`<button onclick="showShiftView('${prevDate}')" class="btn btn-light btn-sm" style="flex:1;">← ${fmt(prevDate)}</button>`:`<div style="flex:1;"></div>`}
+        ${nextDate?`<button onclick="showShiftView('${nextDate}')" class="btn btn-light btn-sm" style="flex:1;">${fmt(nextDate)} →</button>`:`<div style="flex:1;"></div>`}
+      </div>
+      ${STORES.map((storeName,si)=>{
+        const ds=getShifts(si,date);
+        const sorted=[...ds].sort((a,b)=>a.time.localeCompare(b.time));
+        return`<div style="margin-bottom:22px;">
+          <div style="font-size:17px;font-weight:700;padding:12px 14px;border-radius:12px;margin-bottom:12px;background:${si===0?"#fff7ed":"#f5f3ff"};color:${si===0?"#f97316":"#8b5cf6"};">🔥 ${storeName}　${ds.length}人</div>
+          ${ds.length===0?`<div style="color:#94a3b8;font-size:15px;padding:8px 0;">（未設定）</div>`:
+            sorted.map(sh=>{const s=STATE.staff.find(x=>x.id===sh.staffId);if(!s)return"";const rc=ROLE_C[s.role]||ROLE_C.part;const wObj=getW(date,s.id);
+              return`<div class="shift-view-row" style="background:${rc.bg};border-color:${rc.border};">
+                <div style="font-size:20px;font-weight:900;color:${rc.text};min-width:64px;flex-shrink:0;">${sh.time}</div>
+                <div style="flex:1;"><div style="font-size:18px;font-weight:700;color:${rc.text};">${mgrBadge(s.role)} ${s.name}</div>
+                <div style="font-size:13px;color:${rc.text};opacity:.7;margin-top:3px;">${ROLES[s.role]}</div>
+                ${wObj.memo?`<div style="font-size:14px;color:${rc.text};opacity:.75;margin-top:5px;line-height:1.6;">💬 ${wObj.memo}</div>`:""}
+              </div></div>`;
+            }).join("")}
+        </div>`;
+      }).join("")}
+    </div>
+  </div>`;
+}
+
+function renderSettingsTab(){
+  return`<div class="card">
+    <div class="card-title">⚙️ パスワード設定</div>
+    <p style="font-size:14px;color:#64748b;margin-bottom:18px;">空欄のまま保存すると現在のパスワードを維持します</p>
+    <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:18px;margin-bottom:14px;">
+      <div style="font-size:15px;font-weight:700;margin-bottom:6px;">👔 社員・店長パスワード</div>
+      <div style="font-size:12px;color:#94a3b8;margin-bottom:12px;">現在: ${"●".repeat(Math.min(STATE.pws.manager.length,12))}</div>
+      <div class="field" style="margin:0;"><label>新しいパスワード</label><input type="password" id="new-mgr-pw" class="inp" placeholder="新しいパスワード"></div>
+    </div>
+    <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:14px;padding:18px;margin-bottom:18px;">
+      <div style="font-size:15px;font-weight:700;margin-bottom:6px;">🧑‍🍳 アルバイトパスワード</div>
+      <div style="font-size:12px;color:#94a3b8;margin-bottom:12px;">現在: ${"●".repeat(Math.min(STATE.pws.part.length,12))}</div>
+      <div class="field" style="margin:0;"><label>新しいパスワード</label><input type="password" id="new-part-pw" class="inp" placeholder="新しいパスワード"></div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;" onclick="savePw()">🔒 パスワードを更新</button>
+  </div>
+  <div class="card">
+    <div class="card-title">📅 シフト希望の提出期限</div>
+    <p style="font-size:14px;color:#64748b;margin-bottom:16px;">アルバイトの画面に大きく表示されます</p>
+    <div class="field">
+      <label>提出期限（例：4月10日（木）まで）</label>
+      <input id="deadline-inp" class="inp" placeholder="例：4月10日（木）23:59まで" value="${STATE.deadline}">
+    </div>
+    <button class="btn btn-primary" style="width:100%;" onclick="saveDeadline()">📅 提出期限を設定</button>
+  </div>`;
+}
+
+function renderEditStaffModal(){
+  return`<div class="modal-overlay" onclick="if(event.target===this){STATE.editStaffId=null;render();}">
+    <div class="modal-sheet" style="max-height:50vh;">
+      <div class="modal-drag"></div>
+      <div style="font-size:16px;font-weight:700;color:#f97316;margin-bottom:16px;">✏️ スタッフ名を変更</div>
+      <div class="field">
+        <label>新しい名前</label>
+        <input class="inp" id="edit-staff-inp" value="${STATE.editStaffName}" placeholder="名前を入力" oninput="STATE.editStaffName=this.value;" style="font-size:18px;padding:14px;">
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" style="flex:1;" onclick="saveStaffName()">変更を保存 ✓</button>
+        <button class="btn btn-light" onclick="STATE.editStaffId=null;render();">キャンセル</button>
+      </div>
+    </div>
+  </div>`;
+}
+function renderMemoModal(){
+  const memo=STATE.memoModal||"";
+  return`<div class="modal-overlay" onclick="STATE.memoModal=null;render();">
+    <div class="modal-sheet" style="max-height:60vh;">
+      <div class="modal-drag"></div>
+      <div style="font-size:14px;font-weight:700;color:#8b5cf6;margin-bottom:14px;">💬 備考・メモ</div>
+      <div style="font-size:16px;line-height:1.9;color:#1e293b;white-space:pre-wrap;word-break:break-all;">${memo}</div>
+      <button class="btn btn-light" style="width:100%;margin-top:20px;" onclick="STATE.memoModal=null;render();">閉じる</button>
+    </div>
+  </div>`;
+}
+function renderDeleteModal(){
+  return`<div class="del-modal"><div class="del-box">
+    <div style="font-size:17px;font-weight:700;color:#dc2626;margin-bottom:12px;">⚠️ 自動削除の確認</div>
+    <p style="font-size:14px;color:#374151;margin-bottom:16px;line-height:1.8;">以下のスタッフが2ヶ月以上希望を提出していません。削除しますか？</p>
+    <div style="background:#fee2e2;border-radius:10px;padding:14px;margin-bottom:18px;">${STATE.deleteCandidate.map(s=>`<div style="font-size:14px;font-weight:700;color:#dc2626;padding:4px 0;">・${s.name}</div>`).join("")}</div>
+    <div class="btn-row">
+      <button class="btn btn-danger" onclick="confirmDelete()">削除する</button>
+      <button class="btn btn-light" onclick="STATE.deleteCandidate=null;render();">今は削除しない</button>
+    </div>
+  </div></div>`;
+}
+
+window.login=login;window.addStaff=addStaff;window.removeStaff=removeStaff;
+window.setWish=setWish;window.saveWishes=saveWishes;window.setActiveStore=setActiveStore;
+window.toggleDay=toggleDay;window.selectPickStaff=selectPickStaff;
+window.addPickedStaff=addPickedStaff;window.removeShift=removeShift;
+window.autoFill=autoFill;window.savePw=savePw;
+window.showShiftView=showShiftView;window.closeShiftView=closeShiftView;
+window.confirmDelete=confirmDelete;window.getMon=getMon;
+window.applyEditShift=applyEditShift;
+window.saveDeadline=saveDeadline;
+window.saveStaffName=saveStaffName;
+window.STATE=STATE;window.render=render;
+
+init();
+</script>
+</body>
+</html>
